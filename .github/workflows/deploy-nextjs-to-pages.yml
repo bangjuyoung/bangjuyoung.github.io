@@ -61,7 +61,7 @@ jobs:
           required_npm_version=$(node -p "require('./package.json').engines.npm")
           if [ "$(npm --version)" != "$required_npm_version" ]; then
             echo "Updating npm to $required_npm_version"
-            npm install -g npm@$required_npm_version"
+            npm install -g npm@$required_npm_version
           fi
 
       - name: Check Node Version
