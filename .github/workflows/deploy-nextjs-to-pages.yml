@@ -63,11 +63,6 @@ jobs:
             echo "Updating npm to $required_npm_version"
             npm install -g npm@$required_npm_version
           fi
-
-      - name: Check Node Version
-        run: |
-          node --version
-          npm --version
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
