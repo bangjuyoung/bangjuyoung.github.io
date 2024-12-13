@@ -57,6 +57,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Ensure correct npm version
+        if: steps.detect-package-manager.outputs.manager == 'npm'
         run: |
           required_npm_version=$(node -p "require('./package.json').engines.npm")
           if [ "$(npm --version)" != "$required_npm_version" ]; then
