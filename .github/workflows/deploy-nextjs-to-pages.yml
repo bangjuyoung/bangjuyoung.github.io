@@ -53,8 +53,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: package.json
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+
+      - name: Check Node Version
+        run: |
+          node --version
+          npm --version
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
