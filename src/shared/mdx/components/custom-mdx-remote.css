@@ -1,0 +1,46 @@
+.custom-mdx-remote {
+    @apply prose max-w-none prose-slate prose-a:underline-offset-4 prose-a:text-blue-600 hover:prose-a:text-blue-500;
+
+    /*
+     * =================
+     * super high styles
+     * =================
+     */
+
+    --sh-class: #7dd3fc;
+    --sh-identifier: #f8fafc;
+    --sh-sign: #62748e;
+    --sh-property: #cbd5e1;
+    --sh-entity: #f472b6;
+    --sh-jsxliterals: #e2e8f0;
+    --sh-string: #2dd4bf;
+    --sh-keyword: #f472b6;
+    --sh-comment: #94a3b8;
+    --sh-line-number: #64748b;
+    --sh-highlight-bg: #2bd4bd33;
+    --sh-highlight-border: #2dd4bf;
+
+    pre code {
+        counter-reset: sh-line-number;
+    }
+
+    .sh__line::before {
+        counter-increment: sh-line-number 1;
+        content: counter(sh-line-number);
+        margin-right: 2rem;
+        padding-left: 0.375rem;
+        text-align: right;
+        color: var(--sh-line-number);
+    }
+
+    .sh__line {
+        border-left: 0.5rem solid transparent;
+    }
+
+    .sh__line--highlight {
+        margin-left: -1.14286em;
+        padding-left: 1.14286em;
+        background: var( --sh-highlight-bg);
+        border-color: var(--sh-highlight-border);
+    }
+}
