@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import './globals.css';
 import Link from 'next/link';
-import { defaultFont } from './font';
+import '@/shared/styles/globals.css';
+import { defaultFont } from '@/shared/styles/fonts';
 
 export const metadata: Metadata = {
   title: 'Bangjuyoung',
@@ -43,8 +43,8 @@ export default function RootLayout({
             <br />
             debate between dynamic and static typing continues to be a hot topic. While dynamic typing offers
             flexibility and rapid development, static typing brings its own set of powerful advantages that can
-            significantly improve the quality and maintainability of code. In this post, we'll explore why static typing
-            is crucial for developers, accompanied by practical examples through markdown code snippets.
+            significantly improve the quality and maintainability of code. In this post, we&apos;ll explore why static
+            typing is crucial for developers, accompanied by practical examples through markdown code snippets.
           </p>
         </div>
 
