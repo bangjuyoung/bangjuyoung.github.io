@@ -7,6 +7,7 @@
     "build": "next build",
     "build:clean": "npm run reinstall && npm run build",
     "start": "next start",
+    "start:export": "next build && npx serve@latest out",
     "lint": "next lint",
     "clean": "rimraf .next out node_modules",
     "reinstall": "npm run clean && npm ci"
