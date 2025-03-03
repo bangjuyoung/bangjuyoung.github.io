@@ -1,18 +1,18 @@
 import { notFound } from 'next/navigation';
-import { CustomMDXRemote } from '@/shared/mdx';
-import { recordContents } from '@/contexts/record';
+import { MDXContent } from '@/shared/mdx';
+import { findAllPostsByDomain, findPostBySlug } from '@/shared/post';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return recordContents.getAll().map(({ slug }) => ({ slug }));
+  return findAllPostsByDomain(['records', 'test']).map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const metadata = recordContents.getBySlug(slug)?.metadata;
+  const metadata = findPostBySlug(['records', 'test'], slug)?.metadata;
 
   if (!metadata) {
     return {};
@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default async function RecordContentPage({ params }: PageProps) {
+export default async function RecordsTestDetailPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const result = recordContents.getBySlug(slug);
+  const result = findPostBySlug(['records', 'test'], slug);
 
   if (!result) {
     notFound();
@@ -43,7 +43,7 @@ export default async function RecordContentPage({ params }: PageProps) {
   return (
     <>
       <h1 className="mb-8 text-4xl font-bold">{title}</h1>
-      <CustomMDXRemote source={content} />
+      <MDXContent source={content} />
     </>
   );
 }

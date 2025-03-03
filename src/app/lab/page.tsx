@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { findSubFoldersByDomain } from '@/shared/post';
 
-export default function RecordsPage() {
-  const { domainPath, folders } = findSubFoldersByDomain(['records']) ?? { domainPath: 'records', folders: [] };
+export default function LabPage() {
+  const { domainPath, folders } = findSubFoldersByDomain(['lab']) ?? { domainPath: 'lab', folders: [] };
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">Records </h1>
+      <h1 className="text-3xl font-bold">Lab</h1>
 
       <br />
 

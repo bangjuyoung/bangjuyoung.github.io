@@ -1,1 +1,2 @@
-export * from './custom-mdx-remote';
+export * from './mdx-content';
+export * from './mdx-components';

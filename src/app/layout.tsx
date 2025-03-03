@@ -20,6 +20,11 @@ export default function RootLayout({
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/records">Records</Link>
+          <Link href="/lab">Lab</Link>
+          <Link href="/changelog">Changelog</Link>
+          <Link href="https://github.com/bangjuyoung/bangjuyoung.github.io" target="_blank">
+            github
+          </Link>
         </nav>
 
         <div className="p-4 [&>p]:mb-4">
