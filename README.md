@@ -15,7 +15,7 @@ Github Pages를 통해 자동으로 배포됩니다.
 또한, Husky 기반의 Git Hook과 커밋 메세지 린트(Commit Convention Lint)를 도입하여
 커밋 메세지의 일관성과 코드 품질 향상도 함께 추구합니다.
 
-## 주요 특징
+## ✨ 주요 특징
 
 - 다국어 지원: 한국어를 기본으로, 영어(en-us) 콘텐츠를 추가 지원
 - MDX 기반 콘텐츠: 마크다운의 유연함과 JSX의 확장성을 모두 활용
@@ -30,9 +30,7 @@ Github Pages를 통해 자동으로 배포됩니다.
 - Git Hook & 커밋 린트: Husky, lint-staged, commitlint로 커밋 전 코드 스타일·문법 검사 및 커밋 메시지 컨벤션 준수 자동화
 - 자동 배포: GitHub Actions로 코드 푸시 시 GitHub Pages에 자동 배포
 
----
-
-## 주요 기술 스택
+## 🛠️ 주요 기술 스택
 
 - **메인 프레임워크: [Next.js 15+ (App Router)](https://nextjs.org/docs/app)**
   - React 기반 최신 풀스택 프레임워크
@@ -71,9 +69,7 @@ Github Pages를 통해 자동으로 배포됩니다.
   - **[GitHub Actions](https://docs.github.com/en/actions)**
     - 코드 푸시 시 자동 빌드 및 배포, CI/CD 파이프라인 구성
 
----
-
-## DDD 기반 폴더 구조 (도메인 중심 설계)
+## 🗂️ DDD 기반 폴더 구조 (도메인 중심 설계)
 
 DDD(Domain-Driven Design) 원칙에 따라,
 비즈니스 도메인별로 domain, application, infrastructure, presentation(UI) 계층을 분리해 구조화합니다.
@@ -245,16 +241,7 @@ my-nextjs-blog/
 - 실제 포스트, 데이터 등 도메인 모델의 원본 데이터 소스 역할
 - modules/{domain}/infrastructure 구현체가 이 데이터를 도메인 객체로 변환
 
----
-
-## 개발 및 배포
-
-네!
-**가독성**, **중복 최소화**, **실제 프로젝트에서 바로 참고 가능한 스타일**로 다듬었습니다.
-
----
-
-## 개발 및 배포
+## 🚀 개발 및 배포
 
 ### 개발 환경
 
@@ -290,17 +277,7 @@ my-nextjs-blog/
   - `GITHUB_TOKEN`
   - (Changelogs 기능에서 GitHub API 연동 시 사용, 반드시 GitHub Actions Secret으로 안전하게 관리)
 
----
-
-## 개발 가이드
-
-아주 자세하게 잘 정리하셨습니다!
-아래는 **가독성**, **실행 흐름**, **불필요한 중복 최소화**, **실무에서 바로 쓸 수 있도록**
-더 명확하게 다듬은 개발 가이드입니다.
-
----
-
-## 가이드
+## 📚 가이드
 
 ### 프로젝트 시작
 
@@ -316,7 +293,6 @@ my-nextjs-blog/
 3. **환경 변수 설정**
    - `.env.local` 파일을 생성해 [필요한 환경 변수](#환경-변수-설정)를 추가합니다.
 4. **개발 서버 실행**
-
    ```bash
    npm run dev
    ```
