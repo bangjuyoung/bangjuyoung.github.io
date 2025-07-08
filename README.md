@@ -118,13 +118,13 @@ my-nextjs-blog/
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── page.tsx
 │   │   │   ├── page.tsx    # 로케일별 홈페이지
-│   │   │   ├── layout.tsx  # 로케일별 레이아웃
-│   │   │   └── not-found.tsx # 로케일별 404 페이지
+│   │   │   └── layout.tsx  # 로케일별 레이아웃
 │   │   ├── api/            # Infrastructure Layer: API 라우트
 │   │   │   └── rss-xml/
 │   │   │       └── route.ts # RSS 피드 API
 │   │   ├── layout.tsx      # 전역 레이아웃
-│   │   └── page.tsx        # 최상위 리다이렉트 또는 로케일 선택 페이지
+│   │   ├── page.tsx        # 최상위 리다이렉트 또는 로케일 선택 페이지
+│   │   └── not-found.tsx   # 최상위 404 페이지
 │   ├── modules/            # 📦 도메인 모듈 (수직 분할)
 │   │   ├── post/           # 블로그 포스트 도메인
 │   │   │   ├── domain/     # 🎯 도메인 레이어 (엔티티, 값 객체, 인터페이스)
@@ -293,6 +293,7 @@ my-nextjs-blog/
 3. **환경 변수 설정**
    - `.env.local` 파일을 생성해 [필요한 환경 변수](#환경-변수-설정)를 추가합니다.
 4. **개발 서버 실행**
+
    ```bash
    npm run dev
    ```

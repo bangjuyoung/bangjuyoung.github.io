@@ -1,0 +1,11 @@
+{
+  "Metadata": {
+    "title": "Blog"
+  },
+  "HomePage": {
+    "title": "Hello World!"
+  },
+  "AboutPage": {
+    "title": "Introduction"
+  }
+}
