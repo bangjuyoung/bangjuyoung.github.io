@@ -1,4 +1,9 @@
 {
+  "NOT_FOUND": {
+    "title": "Page Not Found",
+    "description": "The page you requested does not exist or has been moved.",
+    "goToHome": "Go to Home"
+  },
   "Metadata": {
     "title": "Blog"
   },
