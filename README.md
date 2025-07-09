@@ -118,13 +118,13 @@ my-nextjs-blog/
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── page.tsx
 │   │   │   ├── page.tsx    # 로케일별 홈페이지
-│   │   │   ├── layout.tsx  # 로케일별 레이아웃
-│   │   │   └── not-found.tsx # 로케일별 404 페이지
+│   │   │   └── layout.tsx  # 로케일별 레이아웃
 │   │   ├── api/            # Infrastructure Layer: API 라우트
 │   │   │   └── rss-xml/
 │   │   │       └── route.ts # RSS 피드 API
 │   │   ├── layout.tsx      # 전역 레이아웃
-│   │   └── page.tsx        # 최상위 리다이렉트 또는 로케일 선택 페이지
+│   │   ├── page.tsx        # 최상위 리다이렉트 또는 로케일 선택 페이지
+│   │   └── not-found.tsx   # 최상위 404 페이지
 │   ├── modules/            # 📦 도메인 모듈 (수직 분할)
 │   │   ├── post/           # 블로그 포스트 도메인
 │   │   │   ├── domain/     # 🎯 도메인 레이어 (엔티티, 값 객체, 인터페이스)
@@ -293,6 +293,7 @@ my-nextjs-blog/
 3. **환경 변수 설정**
    - `.env.local` 파일을 생성해 [필요한 환경 변수](#환경-변수-설정)를 추가합니다.
 4. **개발 서버 실행**
+
    ```bash
    npm run dev
    ```
@@ -332,3 +333,16 @@ my-nextjs-blog/
 4. **환경 변수 시크릿 추가:**
    - GitHub 리포지토리 → Settings → Secrets and variables → Actions
    - [필요한 환경 변수](#환경-변수-설정) 추가
+
+## 참고
+
+### ❗️정적 사이트 에러 처리
+
+이 프로젝트는 Next.js의 정적 사이트 내보내기(output: 'export') 설정을 사용합니다.
+
+> 빌드 시 모든 페이지가 미리 렌더링되어 HTML 파일로 저장됩니다. 이로 인해 런타임 에러(예: throw new Error)는 빌드 중에만 감지됩니다.<br />
+> 빌드 시점에 에러가 발생하면 빌드 실패 또는 해당 경로가 누락되며, 클라이언트에서 발생하는 에러는 error.tsx로 자동 라우팅되지 않습니다.
+
+- 동적 라우트별 error.tsx는 정적으로 빌드되지 않음
+- 최상위 not-found.tsx(404) 페이지만 정적으로 생성
+  - 모든 404 에러는 최상위 not-found 페이지로 일관 처리

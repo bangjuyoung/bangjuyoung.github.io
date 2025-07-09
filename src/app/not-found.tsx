@@ -1,0 +1,31 @@
+'use client';
+
+import { LocaleNotFound, useNotFoundMessage } from '@/modules/common/i18n';
+import { NextIntlClientProvider } from 'next-intl';
+
+// This page renders when a route like `/unknown.txt` is requested.
+// In this case, the layout at `app/[locale]/layout.tsx` receives
+// an invalid value as the `[locale]` param and calls `notFound()`.
+
+export default function GlobalNotFound() {
+  const state = useNotFoundMessage('loading');
+
+  const messages = {
+    NOT_FOUND: state.message ?? {
+      title: '404 - Not Found',
+      description: '',
+      goToHome: '처음으로',
+    },
+  };
+
+  return (
+    <html lang={state.locale}>
+      <body>
+        <NextIntlClientProvider locale={state.locale} messages={messages}>
+          {state.status === 'loading' && <div>Loading...</div>}
+          {(state.status === 'success' || state.status === 'error') && <LocaleNotFound />}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
