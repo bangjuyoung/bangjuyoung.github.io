@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Button } from '@/shared/ui/shadcn-ui';
+import { Html } from '@/shared/ui/layouts';
 
 type Props = PropsWithChildren<{
   params: Promise<{ locale: string }>;
@@ -34,7 +35,7 @@ export default function LocaleLayout({ params, children }: Readonly<Props>) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
+    <Html lang={locale}>
       <body className={`antialiased`}>
         <NextIntlClientProvider>
           <LocaleSwitcher />
@@ -68,6 +69,6 @@ export default function LocaleLayout({ params, children }: Readonly<Props>) {
           {children}
         </NextIntlClientProvider>
       </body>
-    </html>
+    </Html>
   );
 }
