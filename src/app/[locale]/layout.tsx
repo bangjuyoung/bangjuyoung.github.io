@@ -17,10 +17,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Pick<Props, 'params'>) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata' });
+  const t = await getTranslations({ locale, namespace: 'COMMON' });
 
   return {
-    title: t('title'),
+    title: t('app_name'),
+    description: t('app_description'),
   };
 }
 
@@ -34,11 +35,15 @@ export default function LocaleLayout({ params, children }: Readonly<Props>) {
   // Enable static rendering
   setRequestLocale(locale);
 
+  const t = use(getTranslations({ locale, namespace: 'COMMON' }));
+
   return (
     <Html lang={locale}>
       <body className={`antialiased`}>
         <NextIntlClientProvider>
           <LocaleSwitcher />
+          <h1 className="text-3xl font-bold">{t('app_name')}</h1>
+          <p className="text-sm">{t('app_description')}</p>
 
           <div className="inline-flex gap-4 p-4 border rounded">
             <Button asChild>

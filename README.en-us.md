@@ -1,6 +1,6 @@
-# B급 Log
+# B-Log
 
-> 엉성하고, 솔직하며, 가끔 쓸모 있는 기록
+> Messy, honest, and sometimes useful.
 
 Next.js (App Router) 기반의 개인 블로그입니다.
 
