@@ -1,6 +1,6 @@
 import { ComponentProps, PropsWithChildren } from 'react';
 import { nanumGothicCoding } from '../fonts';
-import { cn } from '@/shared/lib/utils';
+import { cn } from '@/shared/lib';
 
 export type HtmlProps = PropsWithChildren<ComponentProps<'html'>>;
 
