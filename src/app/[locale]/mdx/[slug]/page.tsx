@@ -8,5 +8,9 @@ export default async function MDXSlugPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const { default: Post } = await import(`@content/mdx/${slug}/index.mdx`);
 
-  return <Post />;
+  return (
+    <article className="p-4 prose prose-slate max-w-none">
+      <Post />
+    </article>
+  );
 }

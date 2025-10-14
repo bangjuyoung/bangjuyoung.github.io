@@ -1,0 +1,28 @@
+.prose .autolink-heading {
+  @apply no-underline!;
+}
+
+.prose .autolink-heading::after {
+  content: '#';
+  @apply inline-block ml-1 text-[0.75em] opacity-0 transition-opacity;
+}
+
+.prose .autolink-heading:hover::after,
+.prose .autolink-heading:focus-visible::after {
+  @apply opacity-60;
+}
+
+.prose pre > code {
+  white-space: pre;
+}
+
+.prose code[data-line-numbers] {
+  counter-reset: line;
+}
+
+.prose code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  @apply inline-block w-8 mr-4 text-right text-gray-500;
+}
