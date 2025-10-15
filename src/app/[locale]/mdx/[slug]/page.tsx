@@ -1,3 +1,5 @@
+import { MDXContainer } from '@/shared/mdx';
+
 export function generateStaticParams() {
   return [{ slug: 'welcome' }, { slug: 'test' }];
 }
@@ -9,8 +11,8 @@ export default async function MDXSlugPage({ params }: { params: Promise<{ slug: 
   const { default: Post } = await import(`@content/mdx/${slug}/index.mdx`);
 
   return (
-    <article className="p-4 prose prose-slate max-w-none">
+    <MDXContainer className="p-4">
       <Post />
-    </article>
+    </MDXContainer>
   );
 }
