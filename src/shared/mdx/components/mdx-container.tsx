@@ -1,4 +1,3 @@
-import '../../ui/styles/markdown.css';
 import { ComponentPropsWithRef, ElementType, JSX } from 'react';
 import { cn } from '@/shared/lib';
 
