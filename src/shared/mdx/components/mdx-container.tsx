@@ -25,7 +25,24 @@ export function MDXContainer<C extends ElementType = 'article'>({
   const Component = as ?? 'article';
 
   return (
-    <Component {...props} className={cn('prose prose-slate max-w-none', className)}>
+    <Component
+      {...props}
+      className={cn(
+        'prose prose-neutral dark:prose-invert',
+        'max-w-none',
+        'prose-headings:font-semibold',
+        'prose-a:text-primary',
+        'prose-strong:text-foreground',
+        'prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded',
+        'prose-pre:bg-muted prose-pre:text-foreground prose-pre:border prose-pre:border-border',
+        'prose-hr:border-border',
+        'prose-blockquote:border-l-4 prose-blockquote:border-primary/40 prose-blockquote:bg-muted/40 prose-blockquote:py-2 prose-blockquote:px-4',
+        'prose-table:border-separate prose-table:border-spacing-0',
+        'prose-th:border-b prose-th:border-border',
+        'prose-td:border-t prose-td:border-border',
+        className,
+      )}
+    >
       {children}
     </Component>
   );

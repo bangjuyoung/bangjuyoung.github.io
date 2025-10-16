@@ -1,6 +1,7 @@
 import '@/shared/ui/styles/markdown.css';
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote-client/rsc';
 import { rehypePlugins, remarkPlugins } from '@/shared/mdx/preset';
+import { mdxComponents } from './mdx-components';
 
 export type MDXContentProps = {
   title?: string;
@@ -17,13 +18,18 @@ export function MDXContent({ title, content, components, options }: MDXContentPr
     rehypePlugins: mdxOptions?.rehypePlugins ?? rehypePlugins,
   };
 
+  const mergedComponents = {
+    ...mdxComponents,
+    ...components,
+  };
+
   return (
     <>
       {title && <h1>{title}</h1>}
 
       <MDXRemote
         source={content}
-        components={components}
+        components={mergedComponents}
         options={{
           ...restOptions,
           parseFrontmatter: restOptions?.parseFrontmatter ?? false,

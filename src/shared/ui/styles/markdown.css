@@ -28,3 +28,16 @@
 
   @apply inline-block w-8 mr-4 text-right text-gray-500;
 }
+
+/* theme */
+html:not(.dark) .prose code[data-theme*='light'],
+html:not(.dark) .prose code[data-theme*='light'] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+html.dark .prose code[data-theme*='dark'],
+html.dark .prose code[data-theme*='dark'] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}

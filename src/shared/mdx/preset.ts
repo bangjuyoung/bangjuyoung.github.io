@@ -23,7 +23,7 @@ export const rehypePlugins = [
   [
     rehypePrettyCode,
     {
-      theme: 'github-dark',
+      theme: { light: 'github-light', dark: 'github-dark' },
       // Tailwind/prose 배경과 충돌 방지
       keepBackground: false,
     },
