@@ -1,61 +1,43 @@
-import { MDXContent } from '@/shared/mdx';
-import path from 'node:path';
-import * as fs from 'node:fs';
-import matter from 'gray-matter';
-import { contentFrontmatterSchema } from '@content/schema';
-import { postMetadataSchema } from '@/modules/post';
+import { MDXContainer, MDXContent } from '@/shared/mdx';
+import { postBuildNextMetadata, postGetBySlug, postListParams, PostNotFoundError } from '@/modules/post';
 import { Metadata } from 'next';
-import { MDXContainer } from '@/shared/mdx/components/mdx-container';
 
-export function generateStaticParams() {
-  return [{ slug: 'welcome' }, { slug: 'test' }];
+type Props = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  return await postListParams('mdx');
 }
 
 export const dynamicParams = false;
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const { metadata } = await getPostBySlug(slug);
+  const { metadata } = await postGetBySlug('mdx', slug);
 
-  const title = metadata.title;
-  const description = metadata.description ?? metadata.summary ?? title;
-  const keywords = metadata.tags?.join(', ') ?? [];
-  const isPublished = metadata.published;
-
-  return {
-    title,
-    description,
-    keywords,
-    robots: isPublished ? undefined : { index: false, follow: false, nocache: true },
-  };
+  return postBuildNextMetadata(metadata);
 }
 
-export default async function MDXSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function MDXSlugPage({ params }: Props) {
   const { slug } = await params;
-  const { metadata, content } = await getPostBySlug(slug);
 
-  const { title } = metadata;
+  try {
+    const { title, content } = await postGetBySlug('mdx', slug);
 
-  console.log({ metadata });
+    return (
+      <MDXContainer className="p-4">
+        <MDXContent title={title} content={content} />
+      </MDXContainer>
+    );
+  } catch (error) {
+    if (error instanceof PostNotFoundError) {
+      return (
+        <div className="flex flex-col gap-4 p-4">
+          <h1 className="text-2xl font-bold">404 - Not Found</h1>
+          <p>The requested page could not be found.</p>
+        </div>
+      );
+    }
 
-  return (
-    <MDXContainer className="p-4">
-      <MDXContent title={title} content={content} />
-    </MDXContainer>
-  );
-}
-
-async function getPostBySlug(slug: string) {
-  const filePath = path.join(process.cwd(), 'content', 'mdx', slug, 'index.mdx');
-  const raw = await fs.promises.readFile(filePath, 'utf-8');
-
-  const { data, content } = matter(raw);
-
-  const frontmatter = contentFrontmatterSchema.parse(data);
-  const metadata = postMetadataSchema.parse(frontmatter);
-
-  return {
-    metadata,
-    content,
-  };
+    throw error;
+  }
 }
