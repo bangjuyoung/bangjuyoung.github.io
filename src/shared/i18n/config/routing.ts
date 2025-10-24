@@ -1,5 +1,5 @@
 import { defineRouting } from 'next-intl/routing';
-import { DEFAULT_LOCALE, LOCALE_COOKIE_MAX_AGE, LOCALE_COOKIE_NAME, LOCALES } from '@/shared/domain';
+import { DEFAULT_LOCALE, LOCALE_COOKIE_MAX_AGE, LOCALE_COOKIE_NAME, LOCALES } from '@/shared/constants';
 
 export const routing = defineRouting({
   // A list of all locales that are supported

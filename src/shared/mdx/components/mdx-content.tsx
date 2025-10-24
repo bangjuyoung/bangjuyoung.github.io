@@ -1,6 +1,6 @@
-import '@/shared/ui/styles/markdown.css';
+import '@/shared/styles/markdown.css';
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote-client/rsc';
-import { rehypePlugins, remarkPlugins } from '@/shared/mdx/preset';
+import { rehypePlugins, remarkPlugins } from '../preset';
 import { mdxComponents } from './mdx-components';
 
 export type MDXContentProps = {

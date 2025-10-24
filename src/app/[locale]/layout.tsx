@@ -1,11 +1,11 @@
 import { PropsWithChildren, use } from 'react';
 import { hasLocale } from 'use-intl';
-import { Link, LocaleSwitcher, routing } from '@/modules/common/i18n';
+import { Link, LocaleSwitcher, routing } from '@/shared/i18n';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Button } from '@/shared/ui/shadcn-ui';
-import { Html } from '@/shared/ui/layouts';
+import { Button } from '@/shared/shadcn-ui';
+import { Html } from '@/shared/layouts';
 
 type Props = PropsWithChildren<{
   params: Promise<{ locale: string }>;

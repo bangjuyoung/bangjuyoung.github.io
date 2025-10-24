@@ -1,7 +1,7 @@
 'use client';
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/shadcn-ui';
-import { LOCALES } from '@/shared/domain';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/shadcn-ui';
+import { LOCALES } from '@/shared/constants';
 import { useLocale } from 'next-intl';
 import { SelectProps } from '@radix-ui/react-select';
 import { usePathname, useRouter } from '../config';

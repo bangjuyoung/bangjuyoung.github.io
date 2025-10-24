@@ -1,6 +1,6 @@
 import { use } from 'react';
 import { hasLocale } from 'use-intl';
-import { routing } from '@/modules/common/i18n';
+import { routing } from '@/shared/i18n';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';

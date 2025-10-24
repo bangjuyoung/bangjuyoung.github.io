@@ -1,5 +1,5 @@
 import { routing } from '../config';
-import { LOCALE_COOKIE_MAX_AGE, LOCALE_COOKIE_NAME } from '@/shared/domain';
+import { LOCALE_COOKIE_MAX_AGE, LOCALE_COOKIE_NAME } from '@/shared/constants';
 import { hasLocale } from 'next-intl';
 
 export function detectClientLocale() {

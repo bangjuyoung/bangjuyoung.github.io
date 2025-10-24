@@ -1,4 +1,4 @@
-import '@/shared/ui/styles/globals.css';
+import '@/shared/styles/globals.css';
 import { PropsWithChildren } from 'react';
 
 type Props = Readonly<PropsWithChildren>;

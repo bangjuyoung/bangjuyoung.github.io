@@ -1,8 +1,8 @@
 'use client';
 
-import { LocaleNotFound, useNotFoundMessage } from '@/modules/common/i18n';
+import { LocaleNotFound, useNotFoundMessage } from '@/shared/i18n';
 import { NextIntlClientProvider } from 'next-intl';
-import { Html } from '@/shared/ui/layouts';
+import { Html } from '@/shared/layouts';
 
 // This page renders when a route like `/unknown.txt` is requested.
 // In this case, the layout at `app/[locale]/layout.tsx` receives

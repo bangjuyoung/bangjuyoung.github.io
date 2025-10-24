@@ -5,15 +5,15 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "@/shared/ui/styles/globals.css",
+    "css": "@/shared/styles/globals.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
-    "components": "@/shared/ui/components",
+    "components": "@/shared/components",
     "utils": "@/shared/lib/utils",
-    "ui": "@/shared/ui/shadcn-ui",
+    "ui": "@/shared/shadcn-ui",
     "lib": "@/shared/lib",
     "hooks": "@/shared/hooks"
   },

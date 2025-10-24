@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
-import { Link } from '@/modules/common/i18n';
-import { Button } from '@/shared/ui/shadcn-ui';
+import { Link } from '@/shared/i18n';
+import { Button } from '@/shared/shadcn-ui';
 
 export function LocaleNotFound() {
   const t = useTranslations('NOT_FOUND');

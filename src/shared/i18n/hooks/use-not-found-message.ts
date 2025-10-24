@@ -1,10 +1,9 @@
 'use client';
 
-import { NotFoundMessageProps } from '../domain';
+import { NotFoundMessageProps } from '../types';
 import { useEffect, useReducer } from 'react';
-import { detectClientLocale } from '../lib';
+import { detectClientLocale, loadNotFoundMessage } from '../lib';
 import { routing } from '../config';
-import { loadNotFoundMessage } from '../infrastructure';
 
 type State = {
   status: 'idle' | 'loading' | 'success' | 'error';
