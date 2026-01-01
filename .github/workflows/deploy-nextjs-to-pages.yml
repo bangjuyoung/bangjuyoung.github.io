@@ -6,8 +6,7 @@ on:
   # Runs on pushes targeting the main branch
   push:
     branches:
-      - new
-      - next-intl
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
