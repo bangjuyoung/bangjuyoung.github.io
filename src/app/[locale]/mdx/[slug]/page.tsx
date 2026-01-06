@@ -1,18 +1,22 @@
 import { MDXContainer, MDXContent } from '@/shared/mdx';
-import { postBuildNextMetadata, postGetBySlug, postListParams, PostNotFoundError } from '@/modules/post';
+import { PostNotFoundError } from '@/modules/post/domain';
 import { Metadata } from 'next';
+import { postFindAllSlugsAction, postFindBySlugAction } from '@/modules/post/presentation/actions';
+import { postBuildNextMetadata } from '@/modules/post/presentation/utils';
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return await postListParams('mdx');
+  const result = await postFindAllSlugsAction({ collection: 'mdx' });
+
+  return result.map((slug) => ({ slug }));
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const { metadata } = await postGetBySlug('mdx', slug);
+  const { metadata } = await postFindBySlugAction({ collection: 'mdx', slug });
 
   return postBuildNextMetadata(metadata);
 }
@@ -21,7 +25,7 @@ export default async function MDXSlugPage({ params }: Props) {
   const { slug } = await params;
 
   try {
-    const { title, content } = await postGetBySlug('mdx', slug);
+    const { title, content } = await postFindBySlugAction({ collection: 'mdx', slug });
 
     return (
       <MDXContainer className="p-4">

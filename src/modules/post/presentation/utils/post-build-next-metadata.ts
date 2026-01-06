@@ -1,4 +1,4 @@
-import { PostMetadataProps } from '../domain';
+import { PostMetadataProps } from '../../domain';
 import { Metadata } from 'next';
 
 export function postBuildNextMetadata(raw: PostMetadataProps): Metadata {

@@ -1,11 +1,11 @@
-import { postListAll } from '@/modules/post';
 import Link from 'next/link';
+import { postFindAllAction } from '@/modules/post/presentation/actions';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export default async function MDXPage({ params }: Props) {
   const { locale } = await params;
-  const items = await postListAll('mdx');
+  const items = await postFindAllAction({ collection: 'mdx' });
 
   if (items.length === 0) {
     return <div className="p-4">작성된 포스트가 없습니다.</div>;
